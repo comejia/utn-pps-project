@@ -1,0 +1,23 @@
+<settings>
+    <servers>
+        <server>
+            <id>gitlab-maven</id>
+            <configuration>
+                <httpHeaders>
+                    <property>
+                        <name>Deploy-Token</name>
+                        <value>sN29RySxiwnLxmC8nzTK</value>
+                    </property>
+                </httpHeaders>
+            </configuration>
+        </server>
+    </servers>
+    <mirrors>
+        <mirror>
+            <id>maven-default-http-blocker</id>
+            <name>Repository to mirror external repositories initially using HTTP.</name>
+            <mirrorOf>jitpack</mirrorOf>
+            <url>http://0.0.0.0/</url>
+        </mirror>
+    </mirrors>
+</settings>

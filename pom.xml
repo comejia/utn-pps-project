@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>flow</groupId>
+  <artifactId>flow</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>flow</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <aspectj.version>1.9.7</aspectj.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.com/api/v4/projects/37435882/packages/maven</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>flow</groupId>
+      <artifactId>automation-common</artifactId>
+      <version>2.0.11-SNAPSHOT</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.influxdb/influxdb-java -->
+    <dependency>
+      <groupId>org.influxdb</groupId>
+      <artifactId>influxdb-java</artifactId>
+      <version>2.22</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.mashape.unirest/unirest-java -->
+    <dependency>
+      <groupId>com.mashape.unirest</groupId>
+      <artifactId>unirest-java</artifactId>
+      <version>1.4.9</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.awaitility/awaitility -->
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>4.2.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.18.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>33.0.0-jre</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.10.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.allure-junit4jayway.jsonpath/json-path -->
+    <dependency>
+      <groupId>com.jayway.jsonpath</groupId>
+      <artifactId>json-path</artifactId>
+      <version>2.7.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.github.stephenc.monte/monte-screen-recorder -->
+    <dependency>
+      <groupId>com.github.stephenc.monte</groupId>
+      <artifactId>monte-screen-recorder</artifactId>
+      <version>0.7.7.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/net.lightbody.bmp/browsermob-core -->
+    <dependency>
+      <groupId>net.lightbody.bmp</groupId>
+      <artifactId>browsermob-core</artifactId>
+      <version>2.1.5</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/net.bramp.ffmpeg/ffmpeg -->
+    <dependency>
+      <groupId>net.bramp.ffmpeg</groupId>
+      <artifactId>ffmpeg</artifactId>
+      <version>0.8.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit4 -->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit4</artifactId>
+      <version>2.17.3</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>7.15.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>7.15.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber7-jvm -->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-cucumber7-jvm</artifactId>
+      <version>2.25.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.2.6</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.6</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.2.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <release>11</release>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.2</version>
+          <configuration>
+            <useSystemClassLoader>false</useSystemClassLoader>
+            <runOrder>random</runOrder>
+            <!-- <rerunFailingTestsCount>3</rerunFailingTestsCount> -->
+            <!-- <skipAfterFailureCount>50</skipAfterFailureCount> -->
+            <testFailureIgnore>false</testFailureIgnore>
+            <failIfNoTests>false</failIfNoTests>
+            <!-- <generateReports>false</generateReports> -->
+            <!-- <parallel>methods</parallel> -->
+            <!-- <perCoreThreadCount>1</perCoreThreadCount> -->
+            <!-- <parallel>classes</parallel> -->
+            <!-- <threadCount>2</threadCount> -->
+            <!--                        <forkCount>1</forkCount>-->
+            <!--                        <reuseForks>false</reuseForks>-->
+            <trimStackTrace>false</trimStackTrace>
+            <reportFormat>plain</reportFormat>
+            <!--redirectTestOutputToFile>true</redirectTestOutputToFile -->
+            <!-- <showSuccess>true</showSuccess> -->
+            <systemPropertyVariables>
+              <log4j.configuration>log4j.properties</log4j.configuration>
+            </systemPropertyVariables>
+            <argLine>
+              -Xms4096m -Xmx4096m -XX:NewSize=2048m -XX:MaxNewSize=2048m
+              -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+            </argLine>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.aspectj</groupId>
+              <artifactId>aspectjweaver</artifactId>
+              <version>${aspectj.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-report-plugin</artifactId>
+          <version>2.22.2</version>
+          <configuration>
+            <showSuccess>true</showSuccess>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>2.22.2</version>
+          <configuration>
+            <argLine>
+              -Xms1024m -Xmx1024m -XX:NewSize=512m -XX:MaxNewSize=512m
+            </argLine>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.8.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.2.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+        <plugin>
+          <groupId>io.qameta.allure</groupId>
+          <artifactId>allure-maven</artifactId>
+          <version>2.11.2</version>
+          <configuration>
+            <reportVersion>2.14.0</reportVersion>
+            <reportDirectory>${project.basedir}/target/allure-report</reportDirectory>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>16</source>
+          <target>16</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
